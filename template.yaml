@@ -3,25 +3,24 @@ Transform: AWS::Serverless-2016-10-31
 Description: Lamdbda RDS mysql
 
 Resources:
-  SimpleLambdaFunction:
-    Type: AWS::Serverless::Function
-    Properties:
-      CodeUri: src/
-      Runtime: nodejs14.x
-      Handler: index.lambdaHandler
-      Environment:
-        Variables:
-          NODE_ENV : development
-          DB_DATABASE : vins_test1
-          DB_HOST : host
-          DB_USER : user
-          DB_PASSWD : pw
-          REGION: eu-west-1
-      VpcConfig:
-          SecurityGroupIds:
-            - sg-9fa84eef
-          SubnetIds:
-            - subnet-bb83f5f3
-      Layers:
-        - arn:aws:lambda:eu-west-1:275552291381:layer:mysql2:1
-
+    SimpleLambdaFunction:
+        Type: AWS::Serverless::Function
+        Properties:
+            CodeUri: src/
+            Runtime: nodejs14.x
+            Handler: index.lambdaHandler
+            Environment:
+                Variables:
+                    NODE_ENV: development
+                    DB_DATABASE: vins_test1
+                    DB_HOST: host
+                    DB_USER: user
+                    DB_PASSWD: pw
+                    REGION: eu-west-1
+            VpcConfig:
+                SecurityGroupIds:
+                    - sg-9fa84eef
+                SubnetIds:
+                    - subnet-bb83f5f3
+            Layers:
+                - arn:aws:lambda:eu-west-1:275552291381:layer:mysql2:1
